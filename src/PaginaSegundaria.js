@@ -1,5 +1,5 @@
 import Logo from "./Logo";
-import Pergunta from './Pergunta';
+import Perguntas from './Perguntas';
 import Contador from './Contador';
 import styled from 'styled-components';
 
@@ -7,7 +7,7 @@ export default function PaginaSegundaria( {cards}){
     return (
         <PaginaSegundariaStyled>    
             <Logo />
-            <Pergunta cards={cards}/>
+            <Perguntas cards={cards}/>
             <Contador />
         </PaginaSegundariaStyled>
     )

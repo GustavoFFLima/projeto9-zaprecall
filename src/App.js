@@ -19,6 +19,7 @@ export default function App() {
 
   return (
     <>
+    <GlobalStyle />
       <AppStyled>
         <BoasVindas />
         <PaginaSegundaria  cards={cards}/>
