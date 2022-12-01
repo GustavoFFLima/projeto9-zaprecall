@@ -2,15 +2,20 @@ import { useState } from "react"
 import styled from 'styled-components';
 import VerResposta from './assets/img/seta_virar.png'
 import Selecionar from './Selecionar.js'
+import VerPergunta from './assets/img/seta_play.png'
 import iconeErrado from './assets/img/icone_erro.png'
 import iconeQuase from './assets/img/icone_quase.png'
 import iconeCerto from './assets/img/icone_certo.png'
 
 
-export default function Card( { cards, icone, setIcone, CorNPergunta, setCorNPergunta, contadorResposta, setContadorResposta }){
+export default function Card( { cards, contadorResposta, setContadorResposta }){
 
     const [cardAberto, setCardAberto] = useState(false)
     const [resposta, setResposta] = useState(false)
+    const [icone, setIcone] = useState(VerPergunta)
+    const [corNPergunta, setCorNPergunta] = useState("#000000")
+    const [textDecoration, setTextDecoration] = useState("none")
+    const [desabilitar, setDesabilitar] = useState(false)
 
     function abrirPergunta(){
         setCardAberto(true)
@@ -21,36 +26,41 @@ export default function Card( { cards, icone, setIcone, CorNPergunta, setCorNPer
     }
 
     function naoLembrei(){
-        console.log("oi")
         setContadorResposta(contadorResposta + 1)
         setCardAberto(false)
         setResposta(false)
+        setDesabilitar(true)
         setIcone(iconeErrado)
         setCorNPergunta("#FF3030")
+        setTextDecoration("line-through")
     }
 
     function quaseaNaoLembrei(){
-        console.log("oi")
         setContadorResposta(contadorResposta + 1)
         setCardAberto(false)
         setResposta(false)
+        setDesabilitar(true)
         setIcone(iconeQuase)
+        setCorNPergunta("#FF922E")
+        setTextDecoration("line-through")
     }
 
     function zap(){
-        console.log("oi")
         setContadorResposta(contadorResposta + 1)
         setCardAberto(false)
         setResposta(false)
+        setDesabilitar(true)
         setIcone(iconeCerto)
+        setCorNPergunta("#2FBE34")
+        setTextDecoration("line-through")
     }
     
     return (
         <>
             {!resposta ? !cardAberto ? 
-            <PerguntasStyled cor={CorNPergunta}>
-                <p cor={CorNPergunta} >Pergunta {cards.id}</p> 
-                <button onClick={abrirPergunta}>
+            <PerguntasStyled cor={corNPergunta} texto={textDecoration}>
+                <p  >Pergunta {cards.id}</p> 
+                <button onClick={abrirPergunta} disabled={desabilitar}>
                     <img 
                         src={icone} 
                         alt="icone da pergunta"/>
@@ -93,6 +103,7 @@ const PerguntasStyled = styled.div`
         font-size: 16px;
         line-height: 19px;
         color: ${props => props.cor};
+        text-decoration: ${props => props.texto};
     }
     button {
         border: none;
