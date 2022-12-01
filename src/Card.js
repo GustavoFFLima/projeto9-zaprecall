@@ -1,11 +1,13 @@
 import { useState } from "react"
 import styled from 'styled-components';
-import VerPergunta from './assets/img/seta_play.png'
 import VerResposta from './assets/img/seta_virar.png'
 import Selecionar from './Selecionar.js'
+import iconeErrado from './assets/img/icone_erro.png'
+import iconeQuase from './assets/img/icone_quase.png'
+import iconeCerto from './assets/img/icone_certo.png'
 
 
-export default function Card( { cards }){
+export default function Card( { cards, icone, setIcone, CorNPergunta, setCorNPergunta, contadorResposta, setContadorResposta }){
 
     const [cardAberto, setCardAberto] = useState(false)
     const [resposta, setResposta] = useState(false)
@@ -19,26 +21,43 @@ export default function Card( { cards }){
     }
 
     function naoLembrei(){
-        setCardAberto(true)
-        setResposta(true)
+        console.log("oi")
+        setContadorResposta(contadorResposta + 1)
+        setCardAberto(false)
+        setResposta(false)
+        setIcone(iconeErrado)
+        setCorNPergunta("#FF3030")
     }
 
-    function quaseaNaoLembrei(){}
-    function zap(){}
+    function quaseaNaoLembrei(){
+        console.log("oi")
+        setContadorResposta(contadorResposta + 1)
+        setCardAberto(false)
+        setResposta(false)
+        setIcone(iconeQuase)
+    }
 
+    function zap(){
+        console.log("oi")
+        setContadorResposta(contadorResposta + 1)
+        setCardAberto(false)
+        setResposta(false)
+        setIcone(iconeCerto)
+    }
+    
     return (
         <>
             {!resposta ? !cardAberto ? 
-            <PerguntasStyled>
-                <p >Pergunta {cards.id}</p> 
+            <PerguntasStyled cor={CorNPergunta}>
+                <p cor={CorNPergunta} >Pergunta {cards.id}</p> 
                 <button onClick={abrirPergunta}>
                     <img 
-                        src={VerPergunta} 
+                        src={icone} 
                         alt="icone da pergunta"/>
                 </button>
             </PerguntasStyled> : 
             <PerguntaStyled>
-                <p >{cards.question}</p> 
+                <p>{cards.question}</p> 
                 <img
                     onClick={abrirResposta}
                     src={VerResposta} 
@@ -62,7 +81,7 @@ const PerguntasStyled = styled.div`
     padding: 15px;
     box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
     border-radius: 5px;
-    display: flex; //janela com as numerações das perguntas
+    display: flex; 
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
@@ -73,7 +92,7 @@ const PerguntasStyled = styled.div`
         font-weight: 700;
         font-size: 16px;
         line-height: 19px;
-        color: #333333;
+        color: ${props => props.cor};
     }
     button {
         border: none;
@@ -95,7 +114,7 @@ const PerguntaStyled = styled.div`
     line-height: 22px;
     color: #333333;
     position: relative;
-    display: flex; //janela com a pergunta
+    display: flex; 
     flex-direction: column;
     justify-content: space-between;
     img{

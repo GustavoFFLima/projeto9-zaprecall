@@ -1,8 +1,8 @@
 import styled from"styled-components";
 
-export default function Contador( { cards } ) {
+export default function Contador( { cards, contadorResposta } ) {
     return <ContadorStyle>
-        <p> 0/{cards.length} CONCLUÍDOS</p>
+        <p> {contadorResposta}/{cards.length} CONCLUÍDOS</p>
     </ContadorStyle>
  }
  

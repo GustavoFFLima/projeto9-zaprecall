@@ -1,18 +1,17 @@
+import { useState } from "react";
 import Logo from "./Logo";
 import Perguntas from './Perguntas';
 import Contador from './Contador';
-import styled from 'styled-components';
 
-export default function PaginaSegundaria( {cards}){
+export default function PaginaSegundaria( {cards }){
+
+    const [contadorResposta, setContadorResposta] = useState(0)
+
     return (
-        <PaginaSegundariaStyled>    
+        <>    
             <Logo />
-            <Perguntas cards={cards}/>
-            <Contador cards={cards}/>
-        </PaginaSegundariaStyled>
+            <Perguntas cards={cards} contadorResposta={contadorResposta} setContadorResposta={setContadorResposta}/>
+            <Contador cards={cards} contadorResposta={contadorResposta}/>
+        </>
     )
 }
-
-const PaginaSegundariaStyled = styled.div`
-    display: columns; //pagina segundaria
-`

@@ -34,10 +34,3 @@ const Button =styled.button`
     border: 1px solid  ${props => props.cor};
     padding:5px;
 `
-
-/* Você vai precisar trocar a cor dos botões e alguns textos!
-  VERDE = "#2FBE34"
-  AMARELO = "#FF922E"
-  VERMELHO = "#FF3030"
-  CINZA = "#333333" 
-*/
