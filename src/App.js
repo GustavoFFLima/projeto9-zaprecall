@@ -27,8 +27,10 @@ export default function App() {
     <>
     <GlobalStyle />
       <AppStyled>
-        {!appIniciado ? <BoasVindas iniciarApp={iniciarApp}/> :
-        <PaginaSegundaria  cards={cards}/>}
+        {!appIniciado ? 
+          <BoasVindas iniciarApp={iniciarApp}/>
+           :
+          <PaginaSegundaria  cards={cards}/>}
       </AppStyled>
     </>
   );
@@ -46,4 +48,5 @@ const AppStyled = styled.div`
   align-items: center;
   margin: 0px;
   padding: 0px;
+  padding-bottom: 80px;
 `

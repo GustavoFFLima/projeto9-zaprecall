@@ -1,9 +1,14 @@
 import styled from"styled-components";
 
-export default function Contador( { cards, contadorResposta, arrayRespostas } ) {
-    return <ContadorStyle>
-        <p> {contadorResposta}/{cards.length} CONCLUÍDOS</p>
-    </ContadorStyle>
+export default function Contador( { cards, arrayRespostas } ) {
+    return (
+        <ContadorStyle>
+            <p>{arrayRespostas.length}/{cards.length} CONCLUÍDOS</p>
+            <ArrayRespostasStyle>
+                {arrayRespostas.map(arrayRespostas => <img src={arrayRespostas} />)}
+            </ArrayRespostasStyle>
+        </ContadorStyle>
+    )
  }
  
  const ContadorStyle = styled.div`
@@ -21,5 +26,11 @@ export default function Contador( { cards, contadorResposta, arrayRespostas } ) 
     font-weight: 400;
     font-size: 18px;
     color: #333333;
-    padding: 10px;  
+    padding: 10px;
+    img {
+        margin: 3px;
+    }
+`
+const ArrayRespostasStyle = styled.div`
+    display: flex;
 `

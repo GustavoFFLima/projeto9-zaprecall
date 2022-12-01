@@ -8,7 +8,7 @@ import iconeQuase from './assets/img/icone_quase.png'
 import iconeCerto from './assets/img/icone_certo.png'
 
 
-export default function Card( { cards, contadorResposta, setContadorResposta }){
+export default function Card( { cards, arrayRespostas, setArrayRespostas }){
 
     const [cardAberto, setCardAberto] = useState(false)
     const [resposta, setResposta] = useState(false)
@@ -16,6 +16,8 @@ export default function Card( { cards, contadorResposta, setContadorResposta }){
     const [corNPergunta, setCorNPergunta] = useState("#000000")
     const [textDecoration, setTextDecoration] = useState("none")
     const [desabilitar, setDesabilitar] = useState(false)
+
+    let respostasFeitas = []
 
     function abrirPergunta(){
         setCardAberto(true)
@@ -26,7 +28,9 @@ export default function Card( { cards, contadorResposta, setContadorResposta }){
     }
 
     function naoLembrei(){
-        setContadorResposta(contadorResposta + 1)
+        respostasFeitas = [...arrayRespostas, iconeErrado]
+        setArrayRespostas(respostasFeitas)
+        console.log(arrayRespostas)
         setCardAberto(false)
         setResposta(false)
         setDesabilitar(true)
@@ -36,7 +40,8 @@ export default function Card( { cards, contadorResposta, setContadorResposta }){
     }
 
     function quaseaNaoLembrei(){
-        setContadorResposta(contadorResposta + 1)
+        respostasFeitas = [...arrayRespostas, iconeQuase]
+        setArrayRespostas(respostasFeitas)
         setCardAberto(false)
         setResposta(false)
         setDesabilitar(true)
@@ -46,7 +51,8 @@ export default function Card( { cards, contadorResposta, setContadorResposta }){
     }
 
     function zap(){
-        setContadorResposta(contadorResposta + 1)
+        respostasFeitas = [...arrayRespostas, iconeCerto]
+        setArrayRespostas(respostasFeitas)
         setCardAberto(false)
         setResposta(false)
         setDesabilitar(true)
@@ -58,8 +64,11 @@ export default function Card( { cards, contadorResposta, setContadorResposta }){
     return (
         <>
             {!resposta ? !cardAberto ? 
-            <PerguntasStyled cor={corNPergunta} texto={textDecoration}>
-                <p  >Pergunta {cards.id}</p> 
+            <PerguntasStyled 
+                cor={corNPergunta} 
+                texto={textDecoration}
+            >
+                <p>Pergunta {cards.id}</p> 
                 <button onClick={abrirPergunta} disabled={desabilitar}>
                     <img 
                         src={icone} 
@@ -76,7 +85,11 @@ export default function Card( { cards, contadorResposta, setContadorResposta }){
              :
             <RespostaStyled>
                 <p >{cards.answer}</p>
-                <Selecionar naoLembrei={naoLembrei} quaseaNaoLembrei={quaseaNaoLembrei} zap={zap}/>
+                <Selecionar 
+                    naoLembrei={naoLembrei} 
+                    quaseaNaoLembrei={quaseaNaoLembrei} 
+                    zap={zap}
+                />
             </RespostaStyled>}
         </>
     )

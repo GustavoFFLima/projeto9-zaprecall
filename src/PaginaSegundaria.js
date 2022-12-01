@@ -5,7 +5,6 @@ import Contador from './Contador';
 
 export default function PaginaSegundaria( {cards }){
 
-    const [contadorResposta, setContadorResposta] = useState(0)
     const [arrayRespostas, setArrayRespostas] = useState([])
 
     return (
@@ -14,13 +13,10 @@ export default function PaginaSegundaria( {cards }){
             <Perguntas 
                 cards={cards} 
                 arrayRespostas={arrayRespostas} 
-                setArrayRespostas={setArrayRespostas} 
-                contadorResposta={contadorResposta} 
-                setContadorResposta={setContadorResposta}/>
+                setArrayRespostas={setArrayRespostas} />
             <Contador 
                 cards={cards} 
-                arrayRespostas={arrayRespostas} 
-                contadorResposta={contadorResposta}/>
+                arrayRespostas={arrayRespostas} />
         </>
     )
 }

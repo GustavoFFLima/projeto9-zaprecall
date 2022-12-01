@@ -5,7 +5,10 @@ import styled from 'styled-components';
 export default function Logo(){
     return (
         <LogoStyled>
-            <img src={ImgLogo} alt="logo do ZapRecall"/>
+            <img 
+                src={ImgLogo} 
+                alt="logo do ZapRecall"
+            />
             <h1>ZapRecall</h1>
         </LogoStyled>
     )

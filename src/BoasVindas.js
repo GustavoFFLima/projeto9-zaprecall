@@ -5,9 +5,14 @@ export default function BoasVindas( { iniciarApp } ){
     return (
         <>
             <BoasVindasStyled>
-            <img src={ImgLogo} alt="logo do ZapRecall"/>
-            <h1>ZapRecall</h1>
-            <button onClick={iniciarApp}>Iniciar Recall!</button>
+                <img 
+                    src={ImgLogo} 
+                    alt="logo do ZapRecall"
+                />
+                <h1>ZapRecall</h1>
+                <button onClick={iniciarApp}>
+                    Iniciar Recall!
+                </button>
             </BoasVindasStyled>
         </>
     )
