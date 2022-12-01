@@ -1,9 +1,3 @@
-import React from "react";
-import PaginaSegundaria from './PaginaSegundaria';
-import BoasVindas from './BoasVindas';
-import { GlobalStyle } from './assets/css/GlobalStyle'
-import styled from 'styled-components';
-
 const cards = [
 	{ id:1, question: "O que é JSX?", answer: "Uma extensão da linguagem JavaScript" },
 	{ id:2, question: "O React é __", answer: "Uma biblioteca JavaScript para construção de interfaces" },
@@ -14,30 +8,3 @@ const cards = [
 	{ id:7, question: "Usamos props para __", answer: "Passar diferentes informações para componentes" },
 	{ id:8, question: "Usamos estado (state) para __", answer: "Dizer para o React quais informações quando atualizadas devem renderizar a tela novamente" }
 ]
-
-export default function App() {
-
-  return (
-    <>
-      <AppStyled>
-        <BoasVindas />
-        <PaginaSegundaria  cards={cards}/>
-      </AppStyled>
-    </>
-  );
-}
-
-const AppStyled = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #FB6B6B;
-  width: 100vw;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0px;
-  padding: 0px;
-  padding-bottom: 200px;
-`

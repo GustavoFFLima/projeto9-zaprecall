@@ -5,7 +5,7 @@ import styled from 'styled-components';
 export default function Logo(){
     return (
         <LogoStyled>
-            <img src={ImgLogo} />
+            <img src={ImgLogo} alt="logo do ZapRecall"/>
             <h1>ZapRecall</h1>
         </LogoStyled>
     )
@@ -14,7 +14,8 @@ export default function Logo(){
 const LogoStyled = styled.div`
     display: flex;
     align-items: center;
-    margin: 40px 0 20px 0;
+    justify-content: center;
+    margin-bottom: 20px;
     img {
         width: 52px;
     }
