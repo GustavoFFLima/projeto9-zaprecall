@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PaginaSegundaria from './PaginaSegundaria';
 import BoasVindas from './BoasVindas';
 import { GlobalStyle } from './assets/css/GlobalStyle'
@@ -17,12 +17,18 @@ const cards = [
 
 export default function App() {
 
+  const [appIniciado, setAppIniciado] = useState(false)
+
+  function iniciarApp(){
+    setAppIniciado(true)
+  }
+
   return (
     <>
     <GlobalStyle />
       <AppStyled>
-        <BoasVindas />
-        <PaginaSegundaria  cards={cards}/>
+        {!appIniciado ? <BoasVindas iniciarApp={iniciarApp}/> :
+        <PaginaSegundaria  cards={cards}/>}
       </AppStyled>
     </>
   );
@@ -40,5 +46,4 @@ const AppStyled = styled.div`
   align-items: center;
   margin: 0px;
   padding: 0px;
-  padding-bottom: 200px;
 `

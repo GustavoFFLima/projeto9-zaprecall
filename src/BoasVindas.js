@@ -1,20 +1,19 @@
 import styled from 'styled-components';
 import ImgLogo from './assets/img/logo.png'
 
-export default function BoasVindas(){
+export default function BoasVindas( { iniciarApp } ){
     return (
         <>
             <BoasVindasStyled>
             <img src={ImgLogo} alt="logo do ZapRecall"/>
             <h1>ZapRecall</h1>
-            <button>Iniciar Recall!</button>
+            <button onClick={iniciarApp}>Iniciar Recall!</button>
             </BoasVindasStyled>
         </>
     )
 }
 
 const BoasVindasStyled = styled.div`
-    display: none;
     align-items: center;
     margin: 40px 0 20px 0;
     img {

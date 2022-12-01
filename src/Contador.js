@@ -1,7 +1,9 @@
 import styled from"styled-components";
 
-export default function Contador() {
-    return <ContadorStyle> 0/4 CONCLUÍDOS </ContadorStyle>
+export default function Contador( { cards } ) {
+    return <ContadorStyle>
+        <p> 0/{cards.length} CONCLUÍDOS</p>
+    </ContadorStyle>
  }
  
  const ContadorStyle = styled.div`

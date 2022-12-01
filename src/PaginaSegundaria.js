@@ -8,11 +8,11 @@ export default function PaginaSegundaria( {cards}){
         <PaginaSegundariaStyled>    
             <Logo />
             <Perguntas cards={cards}/>
-            <Contador />
+            <Contador cards={cards}/>
         </PaginaSegundariaStyled>
     )
 }
 
 const PaginaSegundariaStyled = styled.div`
-    display: columns;
+    display: columns; //pagina segundaria
 `
