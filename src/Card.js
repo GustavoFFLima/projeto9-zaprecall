@@ -76,7 +76,7 @@ export default function Card( { cards, arrayRespostas, setArrayRespostas }){
                         alt="icone da pergunta"/>
                 </button>
             </PerguntasStyled> : 
-            <PerguntaStyled>
+            <PerguntaStyled data-test="flashcard">
                 <p data-test="flashcard-text" >{cards.question}</p> 
                 <img
                     data-test="turn-btn"
@@ -85,7 +85,7 @@ export default function Card( { cards, arrayRespostas, setArrayRespostas }){
                     alt="icone da pergunta"/>
             </PerguntaStyled>
              :
-            <RespostaStyled>
+            <RespostaStyled data-test="flashcard">
                 <p data-test="flashcard-text" >{cards.answer}</p>
                 <Selecionar 
                     naoLembrei={naoLembrei} 

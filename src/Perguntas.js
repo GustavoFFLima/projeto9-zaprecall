@@ -5,7 +5,7 @@ export default function Perguntas( {cards, contadorResposta, setContadorResposta
 
     return  <>
                 {cards.map(cards => 
-                    <Card data-test="flashcard"
+                    <Card
                         key={cards.id} 
                         cards={cards} 
                         contadorResposta={contadorResposta} 
