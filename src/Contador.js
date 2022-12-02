@@ -1,6 +1,6 @@
 import styled from"styled-components";
 
-export default function Contador( { cards, arrayRespostas } ) {
+export default function Contador( { cards, arrayRespostas, arrayIconRespostas } ) {
 
     if(arrayRespostas.length === cards.length){
         if(arrayRespostas.includes() === -1){
@@ -12,7 +12,7 @@ export default function Contador( { cards, arrayRespostas } ) {
         <ContadorStyle data-test="footer">
             <p>{arrayRespostas.length}/{cards.length} CONCLUÍDOS</p>
             <ArrayRespostasStyle>
-                {arrayRespostas.map(arrayRespostas => <img key={Math.random} src={arrayRespostas} />)}
+                {arrayRespostas.map(arrayRespostas => <img key={Math.random}  data-test={arrayIconRespostas} src={arrayRespostas} />)}
             </ArrayRespostasStyle>
         </ContadorStyle>
     )

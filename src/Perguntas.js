@@ -1,7 +1,7 @@
 import React from "react";
 import Card from './Card'
 
-export default function Perguntas( {cards, contadorResposta, setContadorResposta, arrayRespostas, setArrayRespostas }) {
+export default function Perguntas( {cards, contadorResposta, setContadorResposta, arrayRespostas, setArrayRespostas, arrayIconRespostas, setArrayIconRespostas }) {
 
     return  <>
                 {cards.map(cards => 
@@ -11,7 +11,9 @@ export default function Perguntas( {cards, contadorResposta, setContadorResposta
                         contadorResposta={contadorResposta} 
                         setContadorResposta={setContadorResposta} 
                         arrayRespostas={arrayRespostas} 
-                        setArrayRespostas={setArrayRespostas}/>
+                        setArrayRespostas={setArrayRespostas}
+                        arrayIconRespostas={arrayIconRespostas}
+                        setArrayIconRespostas={setArrayIconRespostas}/>
                 )}
             </>
  }

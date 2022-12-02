@@ -8,7 +8,7 @@ import iconeQuase from './assets/img/icone_quase.png'
 import iconeCerto from './assets/img/icone_certo.png'
 
 
-export default function Card( { cards, arrayRespostas, setArrayRespostas }){
+export default function Card( { cards, arrayRespostas, setArrayRespostas, arrayIconRespostas, setArrayIconRespostas }){
 
     const [cardAberto, setCardAberto] = useState(false)
     const [resposta, setResposta] = useState(false)
@@ -19,6 +19,7 @@ export default function Card( { cards, arrayRespostas, setArrayRespostas }){
     const [status, setStatus] = useState("")
 
     let respostasFeitas = []
+    let respostasIconFeitas = []
 
     function abrirPergunta(){
         setCardAberto(true)
@@ -30,6 +31,7 @@ export default function Card( { cards, arrayRespostas, setArrayRespostas }){
 
     function naoLembrei(){
         respostasFeitas = [...arrayRespostas, iconeErrado]
+        respostasIconFeitas = [...arrayIconRespostas, "no-icon"]
         setIcone(iconeErrado)
         setStatus("no-icon")
         setCorNPergunta("#FF3030")
@@ -38,6 +40,7 @@ export default function Card( { cards, arrayRespostas, setArrayRespostas }){
 
     function quaseaNaoLembrei(){
         respostasFeitas = [...arrayRespostas, iconeQuase]
+        respostasIconFeitas = [...arrayIconRespostas, "partial-icon"]
         setIcone(iconeQuase)
         setStatus("partial-icon")
         setCorNPergunta("#FF922E")
@@ -46,6 +49,7 @@ export default function Card( { cards, arrayRespostas, setArrayRespostas }){
 
     function zap(){
         respostasFeitas = [...arrayRespostas, iconeCerto]
+        respostasIconFeitas = [...arrayIconRespostas, "zap-icon"]
         setIcone(iconeCerto)
         setStatus("zap-icon")
         setCorNPergunta("#2FBE34")
@@ -54,6 +58,7 @@ export default function Card( { cards, arrayRespostas, setArrayRespostas }){
 
     function fecharResposta(){
         setArrayRespostas(respostasFeitas)
+        setArrayIconRespostas(respostasIconFeitas)
         setCardAberto(false)
         setResposta(false)
         setDesabilitar(true)
