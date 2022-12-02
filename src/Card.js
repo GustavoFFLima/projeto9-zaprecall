@@ -30,38 +30,33 @@ export default function Card( { cards, arrayRespostas, setArrayRespostas }){
 
     function naoLembrei(){
         respostasFeitas = [...arrayRespostas, iconeErrado]
-        setArrayRespostas(respostasFeitas)
-        console.log(arrayRespostas)
-        setCardAberto(false)
-        setResposta(false)
-        setDesabilitar(true)
         setIcone(iconeErrado)
         setStatus("no-icon")
         setCorNPergunta("#FF3030")
-        setTextDecoration("line-through")
+        fecharResposta()
     }
 
     function quaseaNaoLembrei(){
         respostasFeitas = [...arrayRespostas, iconeQuase]
-        setArrayRespostas(respostasFeitas)
-        setCardAberto(false)
-        setResposta(false)
-        setDesabilitar(true)
         setIcone(iconeQuase)
         setStatus("partial-icon")
         setCorNPergunta("#FF922E")
-        setTextDecoration("line-through")
+        fecharResposta()
     }
 
     function zap(){
         respostasFeitas = [...arrayRespostas, iconeCerto]
+        setIcone(iconeCerto)
+        setStatus("zap-icon")
+        setCorNPergunta("#2FBE34")
+        fecharResposta()
+    }
+
+    function fecharResposta(){
         setArrayRespostas(respostasFeitas)
         setCardAberto(false)
         setResposta(false)
         setDesabilitar(true)
-        setIcone(iconeCerto)
-        setStatus("zap-icon")
-        setCorNPergunta("#2FBE34")
         setTextDecoration("line-through")
     }
     
@@ -69,6 +64,7 @@ export default function Card( { cards, arrayRespostas, setArrayRespostas }){
         <>
             {!resposta ? !cardAberto ? 
             <PerguntasStyled 
+                data-test="flashcard"
                 cor={corNPergunta} 
                 texto={textDecoration}
             >
