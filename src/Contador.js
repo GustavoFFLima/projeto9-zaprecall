@@ -2,7 +2,7 @@ import styled from"styled-components";
 
 export default function Contador( { cards, arrayRespostas } ) {
     return (
-        <ContadorStyle>
+        <ContadorStyle data-test="footer">
             <p>{arrayRespostas.length}/{cards.length} CONCLUÍDOS</p>
             <ArrayRespostasStyle>
                 {arrayRespostas.map(arrayRespostas => <img src={arrayRespostas} />)}

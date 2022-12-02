@@ -4,9 +4,9 @@ export default function Selecionar( {naoLembrei, quaseaNaoLembrei, zap}){
     
     return (
         <SelecionarStyled>
-            <Button onClick={naoLembrei} cor="#FF3030" >Não lembrei</Button>
-            <Button onClick={quaseaNaoLembrei} cor="#FF922E" >Quase não lembrei</Button>
-            <Button onClick={zap} cor="#2FBE34" >Zap!</Button>
+            <Button data-test="no-btn" onClick={naoLembrei} cor="#FF3030" >Não lembrei</Button>
+            <Button data-test="partial-btn" onClick={quaseaNaoLembrei} cor="#FF922E" >Quase não lembrei</Button>
+            <Button data-test="zap-btn" onClick={zap} cor="#2FBE34" >Zap!</Button>
         </SelecionarStyled>
     )
 }

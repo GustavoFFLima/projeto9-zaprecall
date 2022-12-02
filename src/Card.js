@@ -16,6 +16,7 @@ export default function Card( { cards, arrayRespostas, setArrayRespostas }){
     const [corNPergunta, setCorNPergunta] = useState("#000000")
     const [textDecoration, setTextDecoration] = useState("none")
     const [desabilitar, setDesabilitar] = useState(false)
+    const [status, setStatus] = useState("")
 
     let respostasFeitas = []
 
@@ -35,6 +36,7 @@ export default function Card( { cards, arrayRespostas, setArrayRespostas }){
         setResposta(false)
         setDesabilitar(true)
         setIcone(iconeErrado)
+        setStatus("no-icon")
         setCorNPergunta("#FF3030")
         setTextDecoration("line-through")
     }
@@ -46,6 +48,7 @@ export default function Card( { cards, arrayRespostas, setArrayRespostas }){
         setResposta(false)
         setDesabilitar(true)
         setIcone(iconeQuase)
+        setStatus("partial-icon")
         setCorNPergunta("#FF922E")
         setTextDecoration("line-through")
     }
@@ -57,6 +60,7 @@ export default function Card( { cards, arrayRespostas, setArrayRespostas }){
         setResposta(false)
         setDesabilitar(true)
         setIcone(iconeCerto)
+        setStatus("zap-icon")
         setCorNPergunta("#2FBE34")
         setTextDecoration("line-through")
     }
@@ -68,23 +72,25 @@ export default function Card( { cards, arrayRespostas, setArrayRespostas }){
                 cor={corNPergunta} 
                 texto={textDecoration}
             >
-                <p>Pergunta {cards.id}</p> 
-                <button onClick={abrirPergunta} disabled={desabilitar}>
-                    <img 
+                <p data-test="flashcard-text" >Pergunta {cards.id}</p> 
+                <button data-test="play-btn" onClick={abrirPergunta} disabled={desabilitar}>
+                    <img
+                        data-test={status} 
                         src={icone} 
                         alt="icone da pergunta"/>
                 </button>
             </PerguntasStyled> : 
             <PerguntaStyled>
-                <p>{cards.question}</p> 
+                <p data-test="flashcard-text" >{cards.question}</p> 
                 <img
+                    data-test="turn-btn"
                     onClick={abrirResposta}
                     src={VerResposta} 
                     alt="icone da pergunta"/>
             </PerguntaStyled>
              :
             <RespostaStyled>
-                <p >{cards.answer}</p>
+                <p data-test="flashcard-text" >{cards.answer}</p>
                 <Selecionar 
                     naoLembrei={naoLembrei} 
                     quaseaNaoLembrei={quaseaNaoLembrei} 

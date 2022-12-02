@@ -10,7 +10,7 @@ export default function BoasVindas( { iniciarApp } ){
                     alt="logo do ZapRecall"
                 />
                 <h1>ZapRecall</h1>
-                <button onClick={iniciarApp}>
+                <button data-test="start-btn" onClick={iniciarApp}>
                     Iniciar Recall!
                 </button>
             </BoasVindasStyled>
