@@ -2,11 +2,6 @@ import styled from"styled-components";
 
 export default function Contador( { cards, arrayRespostas, arrayIconRespostas } ) {
 
-    if(arrayRespostas.length === cards.length){
-        if(arrayRespostas.includes() === -1){
-            console.log("OI")
-        }
-    }
 
     return (
         <ContadorStyle data-test="footer">
